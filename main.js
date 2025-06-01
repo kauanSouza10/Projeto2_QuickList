@@ -23,11 +23,11 @@ function showItemsList() {
         sectionList.innerHTML += `
          <div class="item">
           <div>
-            <input type="checkbox" name="List" id="item-${index}">
-            <div class="custom-checkbox">
+             <input type="checkbox" name="List" id="item-${index}" ${item.checked && "checked"}>
+            <div class="custom-checkbox" onclick="checkItem('${item.name}')">
               <img src="./assets/checked.svg" alt="checked">
             </div>
-            <label for="item-${index}">${item.name}</label>
+            <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
           </div>
 
           <button onclick="removeItem('${item.name}')">
@@ -37,6 +37,13 @@ function showItemsList() {
         `;
     });
 }
+
+function checkItem(itemName) {
+    
+    const item = items.find((item) => item.name === itemName)
+    item.checked = !item.checked
+    showItemsList()
+  }
 
 function removeItem(itemName) {
     const itemIndex = items.findIndex((item) => item.name === itemName)
