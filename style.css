@@ -188,7 +188,7 @@ main {
         align-items: center;
         gap: 1.8rem;
     }
-    
+
     i{
         font-size: 2rem;
     }
@@ -200,3 +200,7 @@ main {
     }
 }
 
+.hide-warning {
+    opacity: 0;
+    transform: translateY(-10px);
+}
